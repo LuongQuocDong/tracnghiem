@@ -17,7 +17,7 @@ Yêu cầu Node.js 20 trở lên.
 
 1. Import repo GitHub này vào Vercel. Framework Preset: **Other**; Root Directory: gốc repo; Output Directory: `public` (đã ghi trong `vercel.json`).
 2. Thêm biến môi trường `MONGODB_URI`, `MONGODB_DB` (mặc định `tracnghiemapp`), `ADMIN_PASSWORD`, `SESSION_SECRET` cho Production và Preview. Dùng giá trị tương ứng trong `.env.local` trên máy này nếu muốn dùng cùng database và mật khẩu quản trị.
-3. Bảo đảm MongoDB Atlas cho phép kết nối mạng từ môi trường Vercel, rồi Deploy.
+3. Vercel dùng IP đầu ra thay đổi. Trong MongoDB Atlas → **Database & Network Access** → **IP Access List**, bản Hobby cần mục `0.0.0.0/0` để Function kết nối được. Chỉ mở IP khi đã dùng mật khẩu MongoDB mạnh, giữ URI trong Environment Variables và bảo vệ tài khoản Atlas; gói Vercel có IP tĩnh có thể giới hạn danh sách IP chặt hơn. Sau đó Deploy lại nếu vừa sửa biến môi trường.
 
 Vercel chạy `api/rpc.js` như một Node.js Function. [Hướng dẫn Functions](https://vercel.com/docs/functions/runtimes/node-js) và [thiết lập build](https://vercel.com/docs/builds/configure-a-build) giải thích cấu trúc `api/` và thư mục tĩnh `public/`.
 

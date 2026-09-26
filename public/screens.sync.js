@@ -53,7 +53,7 @@ async function renderSyncScreen(root, App) {
 
 async function gatherStats(App) {
   const [banks, fillBanks, roster, history] = await Promise.all([
-    App.api.allBanks(), App.api.allFillBanks(), App.api.allStudents(), App.api.history(),
+    App.api.listBanks(), App.api.listFillBanks(), App.api.allStudents(), App.api.history(),
   ]);
   return { banks: banks.length, fillBanks: fillBanks.length, roster: roster.length, history: history.length };
 }

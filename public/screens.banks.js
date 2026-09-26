@@ -5,7 +5,7 @@ const ROWS_PER_PAGE = 20;
 
 // ======================================================== danh sach mon hoc
 async function renderBanksList(root, App, importNow) {
-  const banks = await App.api.allBanks();
+  const banks = await App.api.listBanks();
   root.appendChild(pageTitle({
     eyebrow: '📚 Ngân hàng đề', title: 'Quản lý', hl: 'câu hỏi',
     subtitle: 'Nhập đề từ file .txt, sửa nội dung câu hỏi và đáp án, hoặc xuất đề ra file để chia sẻ cho lớp.',
@@ -28,22 +28,22 @@ async function renderBanksList(root, App, importNow) {
   }
 
   const grid = el('div', { class: 'card-grid', style: { gridTemplateColumns: 'repeat(3, 1fr)' } });
-  for (const bank of banks) grid.appendChild(await bankCard(App, bank));
+  for (const bank of banks) grid.appendChild(bankCard(App, bank));
   root.appendChild(grid);
   root.appendChild(el('div', { style: { height: '20px' } }));
 
   if (importNow) setTimeout(() => importDialogMcq(App, () => App.navigate('banks')), 100);
 }
 
-async function bankCard(App, bank) {
+function bankCard(App, bank) {
   const color = bank.color;
-  const isSample = await App.api.hasSample(bank.id);
+  const isSample = bank.isSample;
   const card = panel([], { classes: 'subject-card', accent: color, onClick: () => App.navigate('banks', { openBank: bank.id }) });
   const top = el('div', { class: 'top' });
   top.appendChild(el('div', { class: 'icon-box', html: icon(isSample ? 'book' : 'pencil', 20), style: { background: `color-mix(in srgb, ${color} 18%, var(--surface))`, border: `1px solid ${color}` } }));
   const textWrap = el('div', {}, [el('div', { class: 'name', text: bank.name })]);
   const chips = el('div', { class: 'chips' });
-  chips.append(chipEl(`${bank.questions.length} câu`), chipEl(isSample ? 'Đề mẫu' : 'Tự nhập', { tone: isSample ? 'active' : '' }));
+  chips.append(chipEl(`${bank.questionCount} câu`), chipEl(isSample ? 'Đề mẫu' : 'Tự nhập', { tone: isSample ? 'active' : '' }));
   textWrap.appendChild(chips);
   top.appendChild(textWrap);
   card.appendChild(top);
@@ -55,7 +55,7 @@ async function bankCard(App, bank) {
   actions.appendChild(btn('', async (e) => {
     e.stopPropagation();
     const note = isSample ? ' Bạn có thể nạp lại từ file .txt sau.' : '';
-    if (await confirmDialog(`Xoá môn "${bank.name}"?`, `Toàn bộ ${bank.questions.length} câu hỏi của môn này sẽ bị xoá khỏi app.${note}`, { confirmLabel: 'Xoá môn học', danger: true })) {
+    if (await confirmDialog(`Xoá môn "${bank.name}"?`, `Toàn bộ ${bank.questionCount} câu hỏi của môn này sẽ bị xoá khỏi app.${note}`, { confirmLabel: 'Xoá môn học', danger: true })) {
       await App.api.removeBank(bank.id);
       toast('Đã xoá môn học', 'ok');
       App.navigate('banks');

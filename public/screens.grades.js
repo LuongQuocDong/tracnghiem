@@ -10,15 +10,14 @@ async function renderGradeHub(root, App) {
     subtitle: `Đang xem: ${battalion} · ${company} · ${className}. Chọn một môn hoặc bộ đề để xem điểm.`,
   }));
 
-  const banks = await App.api.allBanks();
-  const fillBanks = await App.api.allFillBanks();
+  const [banks, fillBanks] = await Promise.all([App.api.listBanks(), App.api.listFillBanks()]);
 
   root.appendChild(sectionHead('Trắc nghiệm'));
   if (!banks.length) {
     root.appendChild(emptyState('book', 'Chưa có môn trắc nghiệm nào', ''));
   } else {
     const grid = el('div', { class: 'card-grid', style: { gridTemplateColumns: 'repeat(3, 1fr)' } });
-    banks.forEach((b) => grid.appendChild(gradeSubjectCard(App, b.name, b.color, `${b.questions.length} câu`,
+    banks.forEach((b) => grid.appendChild(gradeSubjectCard(App, b.name, b.color, `${b.questionCount} câu`,
       () => App.navigate('gradeboard', { kind: 'mcq', bankId: b.id }))));
     root.appendChild(grid);
   }
@@ -28,7 +27,7 @@ async function renderGradeHub(root, App) {
     root.appendChild(emptyState('pencil', 'Chưa có bộ đề điền chỗ trống nào', ''));
   } else {
     const grid = el('div', { class: 'card-grid', style: { gridTemplateColumns: 'repeat(3, 1fr)' } });
-    fillBanks.forEach((b) => grid.appendChild(gradeSubjectCard(App, b.name, b.color, `${b.subject} · ${b.questions.length} câu`,
+    fillBanks.forEach((b) => grid.appendChild(gradeSubjectCard(App, b.name, b.color, `${b.subject} · ${b.questionCount} câu`,
       () => App.navigate('gradeboard', { kind: 'fill', bankId: b.id }))));
     root.appendChild(grid);
   }

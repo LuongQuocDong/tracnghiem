@@ -6,7 +6,7 @@ const COUNT_CHOICES = [50, 70, 90];
 // ================================================================= MODE HUB
 async function renderModeHub(root, App) {
   if (!(await requireOrg(App))) return;
-  const [banks, fillBanks, history] = await Promise.all([App.api.allBanks(), App.api.allFillBanks(), App.api.history()]);
+  const { bankCount, fillBankCount, historyCount } = await App.api.homeSummary();
 
   const { battalion, company, className } = App.org;
   const crumbs = el('div', { class: 'row gap8 wrap mt8', style: { marginBottom: '4px' } });
@@ -25,18 +25,18 @@ async function renderModeHub(root, App) {
   }));
 
   const grid = el('div', { class: 'mode-hub-grid' });
-  grid.appendChild(modeCard('check', 'var(--accent)', 'Trắc nghiệm', `${banks.length} môn học sẵn sàng`,
+  grid.appendChild(modeCard('check', 'var(--accent)', 'Trắc nghiệm', `${bankCount} môn học sẵn sàng`,
     'Chọn đáp án đúng A · B · C · D. Có chế độ trình chiếu giảng đường và chế độ tự luyện cá nhân có tính giờ.',
     () => App.navigate('hub')));
-  grid.appendChild(modeCard('pencil', 'var(--accent-2)', 'Điền vào chỗ trống', `${fillBanks.length} bộ đề sẵn sàng`,
+  grid.appendChild(modeCard('pencil', 'var(--accent-2)', 'Điền vào chỗ trống', `${fillBankCount} bộ đề sẵn sàng`,
     'Gõ đáp án bằng bàn phím hoặc chạm chọn từ có sẵn. Lọc bộ đề theo môn học.',
     () => App.navigate('fillhub')));
   root.appendChild(grid);
 
   root.appendChild(sectionHead('Tổng quan'));
   const stats = el('div', { class: 'stat-grid', style: { gridTemplateColumns: '1fr 1fr' } });
-  stats.appendChild(statCard(String(banks.length + fillBanks.length), 'Tổng số môn / bộ đề', 'var(--accent)'));
-  stats.appendChild(statCard(String(history.length), 'Lượt làm bài đã lưu', 'var(--accent-2)'));
+  stats.appendChild(statCard(String(bankCount + fillBankCount), 'Tổng số môn / bộ đề', 'var(--accent)'));
+  stats.appendChild(statCard(String(historyCount), 'Lượt làm bài đã lưu', 'var(--accent-2)'));
   root.appendChild(stats);
 }
 
@@ -46,7 +46,7 @@ function modeCard(iconName, color, title, subtitle, desc, onClick) {
   card.appendChild(el('h3', { text: title }));
   card.appendChild(el('div', { class: 'subtitle', text: subtitle, style: { color } }));
   card.appendChild(el('div', { class: 'desc', text: desc }));
-  card.appendChild(btn('Bắt đầu', onClick, { kind: 'primary', iconName: 'arrowRight' }));
+  card.appendChild(btn('Bắt đầu', (event) => { event.stopPropagation(); onClick(); }, { kind: 'primary', iconName: 'arrowRight' }));
   return card;
 }
 
@@ -59,8 +59,8 @@ function statCard(value, label, color) {
 
 // ====================================================================== HUB
 async function renderMcqHub(root, App) {
-  const [banks, history] = await Promise.all([App.api.allBanks(), App.api.history()]);
-  const totalQuestions = banks.reduce((n, b) => n + b.questions.length, 0);
+  const [banks, history] = await Promise.all([App.api.listBanks(), App.api.history()]);
+  const totalQuestions = banks.reduce((n, b) => n + b.questionCount, 0);
   const avg = history.length ? Math.round(history.reduce((s, h) => s + (h.correct / h.total) * 100, 0) / history.length) : 0;
 
   root.appendChild(pageTitle({
@@ -99,7 +99,7 @@ async function renderMcqHub(root, App) {
 }
 
 function subjectCard(App, bank, history) {
-  const total = bank.questions.length;
+  const total = bank.questionCount;
   const ready = COUNT_CHOICES.filter((n) => total >= n);
   const last = history.find((h) => h.bankId === bank.id);
   const color = bank.color;

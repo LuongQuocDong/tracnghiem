@@ -6,11 +6,16 @@ const FILL_COUNT_CHOICES = [10, 20, 30];
 // ==================================================================== HUB
 async function renderFillHub(root, App) {
   const state = { subject: 'Tất cả' };
-  await build();
+  let banks = [], subjects = [];
+  await refresh();
 
-  async function build() {
+  async function refresh() {
+    [banks, subjects] = await Promise.all([App.api.listFillBanks(), App.api.fillSubjects()]);
+    build();
+  }
+
+  function build() {
     root.innerHTML = '';
-    const [banks, subjects] = await Promise.all([App.api.allFillBanks(), App.api.fillSubjects()]);
 
     root.appendChild(pageTitle({
       eyebrow: '✏ Điền vào chỗ trống', title: 'Ôn luyện', hl: 'theo kiểu điền từ',
@@ -20,7 +25,7 @@ async function renderFillHub(root, App) {
     const tools = el('div', { class: 'row gap8 wrap mt8', style: { marginBottom: '16px' } });
     if (App.admin) {
       tools.appendChild(btn('Tạo bộ đề mới', () => createBankDialog(App), { kind: 'primary', iconName: 'plus' }));
-      tools.appendChild(btn('Tải đề lên', () => importDialog(App, build), { kind: 'ghost', small: true, iconName: 'upload' }));
+      tools.appendChild(btn('Tải đề lên', () => importDialog(App, refresh), { kind: 'ghost', small: true, iconName: 'upload' }));
       tools.appendChild(btn('Tải file mẫu', () => downloadTemplate(App), { kind: 'ghost', small: true, iconName: 'download' }));
       root.appendChild(tools);
     }
@@ -49,13 +54,13 @@ async function renderFillHub(root, App) {
       return;
     }
     const grid = el('div', { class: 'card-grid', style: { gridTemplateColumns: 'repeat(3, 1fr)' } });
-    visible.forEach((bank) => grid.appendChild(fillBankCard(App, bank, build)));
+    visible.forEach((bank) => grid.appendChild(fillBankCard(App, bank, refresh)));
     root.appendChild(grid);
   }
 }
 
 function fillBankCard(App, bank, refresh) {
-  const total = bank.questions.length;
+  const total = bank.questionCount;
   const color = bank.color;
   const card = panel([], { classes: 'subject-card', accent: color, onClick: () => App.navigate('fillsetup', { bankId: bank.id }) });
   const top = el('div', { class: 'top' });

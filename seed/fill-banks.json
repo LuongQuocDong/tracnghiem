@@ -1,0 +1,666 @@
+[
+  {
+    "id": "dien-cho-trong-thuoc-thong-thuong",
+    "name": "Điền chỗ trống · Thuốc Thông Thường",
+    "subject": "Thuốc Thông Thường",
+    "source": "sample",
+    "questions": [
+      {
+        "id": "ff15026cbdead",
+        "text": "Thuốc là chế phẩm dùng để ___, ___, chẩn đoán bệnh hoặc điều chỉnh chức năng sinh lý của cơ thể.",
+        "blanks": [
+          "điều trị",
+          "dự phòng"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f31e05fb071ad",
+        "text": "Liều ___ hay còn gọi là liều ___ là lượng thuốc đưa vào cơ thể để đạt tác dụng mong muốn mà chưa gây độc.",
+        "blanks": [
+          "trung bình",
+          "điều trị"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fa97a3d3c0c71",
+        "text": "Nếu dùng liều cao, thuốc có thể trở nên ___ đối với cơ thể.",
+        "blanks": [
+          "độc hại"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fc7c82b39148e",
+        "text": "Ký hiệu ___ trên vỏ hộp thuốc có nghĩa là thuốc ___.",
+        "blanks": [
+          "Rx",
+          "kê đơn"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f18eaf36e1d85",
+        "text": "Số lô sản xuất cho phép truy xét toàn bộ ___ lô thuốc khi cần thiết.",
+        "blanks": [
+          "lai lịch"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f6f1e81de74fd",
+        "text": "Bao bì thương phẩm của thuốc gồm bao bì tiếp xúc trực tiếp với thuốc, bao bì ngoài hoặc ___ (nếu có).",
+        "blanks": [
+          "bao bì trung gian"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f5f4aaa32cdf8",
+        "text": "Hạn sử dụng của thuốc là mốc thời gian đảm bảo thuốc đạt ___ nếu bảo quản đúng quy định.",
+        "blanks": [
+          "chất lượng"
+        ],
+        "auto": false
+      },
+      {
+        "id": "ffec04ad5d6e5",
+        "text": "Paracetamol có tác dụng ___, ___ nhưng không có tác dụng chống viêm.",
+        "blanks": [
+          "giảm đau",
+          "hạ sốt"
+        ],
+        "auto": false
+      },
+      {
+        "id": "ff7ee2f681a14",
+        "text": "Liều tối đa paracetamol cho người lớn trong 24 giờ là ___.",
+        "blanks": [
+          "4g"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fa52719a9fdf8",
+        "text": "Tác dụng phụ khi dùng paracetamol liều cao kéo dài là tổn thương ___, ___.",
+        "blanks": [
+          "gan",
+          "thận"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f64aa157ccb9e",
+        "text": "Aspirin, diclofenac và ibuprofen thuộc nhóm thuốc ___, ___, ___.",
+        "blanks": [
+          "hạ sốt",
+          "giảm đau",
+          "chống viêm"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fc63ae0fd1451",
+        "text": "Tác dụng phụ thường gặp của aspirin là kích ứng niêm mạc ___.",
+        "blanks": [
+          "dạ dày"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f25ea8af11572",
+        "text": "Aspirin chống chỉ định với bệnh nhân bị loét ___.",
+        "blanks": [
+          "dạ dày tá tràng"
+        ],
+        "auto": false
+      },
+      {
+        "id": "ffc4f96ff50c8",
+        "text": "Liều thông thường của aspirin là ___ mỗi lần, dùng ___ lần mỗi ngày.",
+        "blanks": [
+          "0,25g - 0,5g",
+          "3 - 4"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f0b4011b0eeed",
+        "text": "Diazepam có tác dụng chính là ___, ___ và gây ngủ. Khi dùng diazepam cần tránh cho người ___ hoặc vận hành máy móc.",
+        "blanks": [
+          "an thần",
+          "giảm lo âu",
+          "lái xe"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f05e5ed279883",
+        "text": "Morphin có nguồn gốc từ ___. Tác dụng chính là ức chế thần kinh ___ và giảm đau ___.",
+        "blanks": [
+          "thực vật",
+          "trung ương",
+          "mạnh"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f3c26deb1c4dd",
+        "text": "Morphin chống chỉ định khi bệnh nhân bị ___, ___.",
+        "blanks": [
+          "suy hô hấp",
+          "hen phế quản"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f27a2f5f6e330",
+        "text": "Codein có tác dụng giảm ho bằng cách ức chế ___ ở hành não. Codein được chỉ định trong trường hợp ho ___.",
+        "blanks": [
+          "trung tâm ho",
+          "khan"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f567164d09c59",
+        "text": "Ưu điểm của dextromethorphan so với codein là không gây ___.",
+        "blanks": [
+          "nghiện"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f24cda52ee316",
+        "text": "Thuốc tê là thuốc có tác dụng làm mất ___, người bệnh vẫn ___.",
+        "blanks": [
+          "cảm giác tại chỗ",
+          "tỉnh táo"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f67a1de25aba6",
+        "text": "Procain, tetracain, benzocain thuộc nhóm thuốc tê ___.",
+        "blanks": [
+          "tổng hợp"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fd55e2a0d5c77",
+        "text": "Tác dụng gây tê của procain có đặc điểm: gây tê ___, nhưng ___ và ___.",
+        "blanks": [
+          "nhanh",
+          "ngắn",
+          "yếu"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f5afb43dbb831",
+        "text": "Để kéo dài tác dụng gây tê của procain, thường phối hợp với ___.",
+        "blanks": [
+          "adrenalin"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f1a9eef571da4",
+        "text": "Adrenalin là hormon của ___. Được chỉ định trong ngừng tim đột ngột, choáng, ___.",
+        "blanks": [
+          "tủy thượng thận",
+          "trụy tim mạch"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fb0eefed5314e",
+        "text": "Khi sử dụng adrenalin, không được tiêm tĩnh mạch trực tiếp khi chưa ___.",
+        "blanks": [
+          "pha loãng"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fe46835598be5",
+        "text": "Digoxin được chỉ định trong suy tim và ___. Khi tiêm digoxin cần tiêm thật ___ tĩnh mạch.",
+        "blanks": [
+          "rung tâm nhĩ",
+          "chậm"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f2826b25f83bc",
+        "text": "Digoxin chống chỉ định khi bệnh nhân bị nhịp ___, rung ___.",
+        "blanks": [
+          "chậm",
+          "thất"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f12f304c6c026",
+        "text": "Liều duy trì khi dùng digoxin bằng đường uống ở người lớn là ___ viên mỗi ngày.",
+        "blanks": [
+          "1"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fae607fe15dfb",
+        "text": "Nitroglycerin được dùng để điều trị cơn đau thắt ___.",
+        "blanks": [
+          "ngực"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fd8f62d9ab571",
+        "text": "Thuốc nifedipin có tác dụng giãn mạch ngoại vi và ___.",
+        "blanks": [
+          "hạ huyết áp"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f0496914fe805",
+        "text": "Salbutamol được chỉ định trong hen và tắc nghẽn đường ___. Dạng bào chế của salbutamol gồm viên nén và dung dịch ___.",
+        "blanks": [
+          "hô hấp",
+          "khí dung"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f744ab17e5b67",
+        "text": "Bromhexin và N-acetyl cystein có tác dụng làm ___.",
+        "blanks": [
+          "long đờm"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fadf4a69090bb",
+        "text": "Liều dùng bromhexin bằng đường uống là ___ mỗi lần, dùng ___ lần mỗi ngày.",
+        "blanks": [
+          "8 - 16mg",
+          "3"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f06ecad983230",
+        "text": "Acetylcystein còn được dùng để giải độc khi dùng quá liều ___.",
+        "blanks": [
+          "paracetamol"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fa4960e4a0c4a",
+        "text": "Omeprazol được chỉ định trong loét ___ tiến triển. Cách dùng đúng là uống ___.",
+        "blanks": [
+          "dạ dày - tá tràng",
+          "trước bữa ăn sáng"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f372954b90918",
+        "text": "Oresol có tác dụng chính là bù ___, bổ sung chất ___. Cách pha đúng: hòa 1 gói vào ___ nước đun sôi để nguội.",
+        "blanks": [
+          "nước",
+          "điện giải",
+          "1 lít"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fe927de9d6f91",
+        "text": "Sucralfat có tác dụng bảo vệ niêm mạc ___.",
+        "blanks": [
+          "dạ dày"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f0882176f69b5",
+        "text": "Loperamid điều trị tiêu chảy bằng cách giảm nhu động ruột và tăng hấp thu ___.",
+        "blanks": [
+          "nước"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f4513603eda26",
+        "text": "Tác dụng chính của biosubtyl là lập lại cân bằng hệ ___ đường ruột.",
+        "blanks": [
+          "vi khuẩn"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f25bd8953d3a3",
+        "text": "Albendazol được chỉ định điều trị giun đũa, giun móc, giun ___. Chống chỉ định: phụ nữ có thai và trẻ dưới ___ tuổi.",
+        "blanks": [
+          "kim",
+          "2"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fcdbb048a6c1a",
+        "text": "Mebendazol có tác dụng ức chế hấp thu ___ của giun.",
+        "blanks": [
+          "glucose"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f2b04a597bfb3",
+        "text": "Niclosamid cần được uống lúc bụng ___, nhai ___ viên thuốc.",
+        "blanks": [
+          "đói",
+          "kỹ"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fc2cf2806b994",
+        "text": "Cloramin, iod, oxy già thuộc nhóm ___ và các chất tiết oxy.",
+        "blanks": [
+          "halogen"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fc5076ff3f723",
+        "text": "Dung dịch oxy già 3% thường được dùng để rửa vết thương, đặc biệt vết thương ___ có ___. Không dùng cho vết thương đang ___.",
+        "blanks": [
+          "sâu",
+          "mủ",
+          "lành"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f9bee4f939eb6",
+        "text": "Cồn ethylic được chỉ định sát khuẩn vết mổ, nơi tiêm, da tay trước phẫu thuật. Nồng độ sát khuẩn tốt nhất của cồn là ___.",
+        "blanks": [
+          "70°"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fde02cf8f5734",
+        "text": "Kháng sinh được phát hiện và sử dụng đầu tiên là ___.",
+        "blanks": [
+          "Penicillin"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fe56da452d89c",
+        "text": "Penicillin và cephalosporin thuộc nhóm kháng sinh ___.",
+        "blanks": [
+          "beta-lactam"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fcfa7004356f4",
+        "text": "Kháng sinh không nên dùng trong trường hợp nhiễm virus (ví dụ: cúm) vì kháng sinh ___ tác dụng với virus.",
+        "blanks": [
+          "không có"
+        ],
+        "auto": false
+      },
+      {
+        "id": "ff1af9184ee2a",
+        "text": "Thời gian sử dụng kháng sinh khi điều trị thường kéo dài từ ___ ngày.",
+        "blanks": [
+          "5 - 7"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fe7d7213a08c6",
+        "text": "Mục đích của phối hợp kháng sinh là mở rộng ___ và tăng ___ điều trị.",
+        "blanks": [
+          "phổ tác dụng",
+          "hiệu quả"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fe4917a45cb0e",
+        "text": "Độc tính của kháng sinh aminoglycosid gây ra rối loạn ___ và độc tính trên ___.",
+        "blanks": [
+          "thính giác",
+          "thận"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f9d942b3de117",
+        "text": "Chống chỉ định của nhóm cyclin gồm trẻ dưới ___ tuổi, có thai, thời kỳ cho con bú, suy ___.",
+        "blanks": [
+          "8",
+          "thận"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fbe58f4228055",
+        "text": "Tetracyclin làm răng trẻ em bị ___ và dễ hỏng là tác dụng ___.",
+        "blanks": [
+          "vàng",
+          "không hồi phục"
+        ],
+        "auto": false
+      },
+      {
+        "id": "ff4d1091b0417",
+        "text": "Streptomycin có tác dụng chủ yếu đến trực khuẩn ___ và một số vi khuẩn gram âm.",
+        "blanks": [
+          "lao"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f5c345c58da84",
+        "text": "Tác dụng phụ nguy hiểm của streptomycin là gây tổn thương dây thần kinh số ___ và có thể gây ___.",
+        "blanks": [
+          "VIII",
+          "quái thai"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fce3e8419a613",
+        "text": "Ciprofloxacin và ofloxacin thuộc nhóm kháng sinh ___. Chống chỉ định với trẻ em dưới ___ tuổi.",
+        "blanks": [
+          "quinolon",
+          "16"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f25c7b48a9a95",
+        "text": "Vitamin ___ được dùng điều trị khô mắt, quáng gà.",
+        "blanks": [
+          "A"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fa72ed446917f",
+        "text": "Thiếu vitamin ___ có thể gây bệnh béri-béri (tê phù).",
+        "blanks": [
+          "B1"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fb9555083dfdc",
+        "text": "Vitamin ___ được dùng điều trị bệnh scorbut (chảy máu chân răng). Liều không nên vượt quá ___ mỗi ngày.",
+        "blanks": [
+          "C",
+          "1g"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fa4fd9351361a",
+        "text": "Vitamin ___ thường được dùng điều trị bệnh còi xương.",
+        "blanks": [
+          "D"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f42c7d6b78197",
+        "text": "Vitamin ___ dùng để điều trị chảy máu do thiếu prothrombin.",
+        "blanks": [
+          "K"
+        ],
+        "auto": false
+      },
+      {
+        "id": "ff80e9d460a29",
+        "text": "Vitamin ___ được dùng điều trị bệnh pellagra.",
+        "blanks": [
+          "PP"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fc197e3d78baf",
+        "text": "Thuốc artemisinin được phân lập từ cây ___. Tác dụng: diệt thể ___ trong hồng cầu.",
+        "blanks": [
+          "thanh hao hoa vàng",
+          "vô tính"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f2f2ef2a94363",
+        "text": "Quinin có nguồn gốc từ vỏ cây ___. Được chỉ định điều trị sốt rét ___.",
+        "blanks": [
+          "canh ki na",
+          "nặng"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f26ba165099b6",
+        "text": "Fansidar là thuốc phối hợp giữa ___ và ___, dùng điều trị sốt rét do Plasmodium falciparum kháng ___.",
+        "blanks": [
+          "sulfadoxin",
+          "pyrimethamin",
+          "cloroquin"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fff76ad6a2c1e",
+        "text": "Insulin được chiết xuất từ ___ động vật. Được chỉ định điều trị ___ và biến chứng.",
+        "blanks": [
+          "tụy tạng",
+          "đái tháo đường"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f9db36c1cee6f",
+        "text": "Nguyên nhân gây bệnh đái tháo đường là do thiếu ___.",
+        "blanks": [
+          "insulin"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f10844ba970c4",
+        "text": "Glucocorticoid được chỉ định chính để chống viêm, chống ___, phòng chống ___.",
+        "blanks": [
+          "dị ứng",
+          "choáng"
+        ],
+        "auto": false
+      },
+      {
+        "id": "ff0781383c8b9",
+        "text": "Glucocorticoid chống chỉ định trong viêm loét ___, tá tràng, lao ___.",
+        "blanks": [
+          "dạ dày",
+          "tiến triển"
+        ],
+        "auto": false
+      },
+      {
+        "id": "faf77b9aab2cd",
+        "text": "Methylthiouracil được chỉ định trong bệnh ___, chứng ưu năng tuyến ___.",
+        "blanks": [
+          "basedow",
+          "giáp"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fd0ad4f13eecb",
+        "text": "Thuốc kháng histamin H1 được chỉ định trong viêm mũi dị ứng, mày đay, ngứa do ___.",
+        "blanks": [
+          "dị ứng"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f1a5bc9308460",
+        "text": "Tác dụng phụ thường gặp khi dùng thuốc kháng H1 là gây ___.",
+        "blanks": [
+          "buồn ngủ"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fca01a5512095",
+        "text": "Dung dịch natri clorid đẳng trương là dung dịch ___, được chỉ định bù ___ và bù chất ___.",
+        "blanks": [
+          "NaCl 9‰",
+          "nước",
+          "điện giải"
+        ],
+        "auto": false
+      },
+      {
+        "id": "fdd06ba5031ac",
+        "text": "Dung dịch ringer lactat thường dùng với liều ___ ml tùy yêu cầu điều trị.",
+        "blanks": [
+          "500 - 1000"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f2ae3bb766fcc",
+        "text": "Dextran 70 có tác dụng chính là thay thế ___ và duy trì ___.",
+        "blanks": [
+          "huyết tương",
+          "huyết áp"
+        ],
+        "auto": false
+      },
+      {
+        "id": "f4fff64719a07",
+        "text": "Dung dịch natri hydrocarbonat 1,4% được dùng để chống ___, ___ huyết.",
+        "blanks": [
+          "toan",
+          "kiềm"
+        ],
+        "auto": false
+      }
+    ]
+  }
+]

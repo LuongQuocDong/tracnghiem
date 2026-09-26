@@ -12,8 +12,10 @@ async function renderRolePick(root, App) {
   grid.appendChild(roleCard('check', 'var(--accent)', 'Học viên', 'Làm bài trắc nghiệm hoặc điền chỗ trống',
     'Chọn lớp và tên trong danh sách, hoặc nhập tên khi lớp chưa có danh sách. Kết quả được lưu để xem lại.',
     async () => {
-      try { App.role = 'student'; App.org = {}; const groups = await App.api.battalions(); await App.navigate(groups.length ? 'orgpick' : 'start'); }
-      catch (error) { toast(error.message, 'err'); }
+      App.role = 'student'; App.org = {};
+      const groups = await App.api.battalions();
+      if (!groups.length) App.org = { battalion: 'Cộng đồng', company: 'Trực tuyến', className: 'Tự do' };
+      await App.navigate(groups.length ? 'orgpick' : 'start');
     }));
   grid.appendChild(roleCard('chart', 'var(--accent-2)', 'Giảng viên', 'Quản lý điểm theo từng môn',
     'Chọn Tiểu đoàn — Đại đội — Lớp rồi chọn môn để xem điểm, số lần làm bài và tiến bộ của từng học viên.',
@@ -21,12 +23,11 @@ async function renderRolePick(root, App) {
       if (!App.admin) {
         const password = await promptAdminPassword();
         if (!password) return;
-        try { App.admin = (await App.api.loginAdmin(password)).admin; }
-        catch (error) { toast(error.message, 'err'); return; }
+        App.admin = (await App.api.loginAdmin(password)).admin;
       }
       App.updateNav(); App.role = 'teacher'; App.org = {};
-      try { const groups = await App.api.battalions(); await App.navigate(groups.length ? 'orgpick' : 'roster'); }
-      catch (error) { toast(error.message, 'err'); }
+      const groups = await App.api.battalions();
+      await App.navigate(groups.length ? 'orgpick' : 'roster');
     }));
   root.appendChild(grid);
 
@@ -56,12 +57,33 @@ function promptAdminPassword() {
 }
 
 function roleCard(iconName, color, title, subtitle, desc, onClick) {
-  const card = panel([], { classes: 'mode-card', accent: color, onClick });
+  let busy = false;
+  const status = el('div', { class: 'role-status', attrs: { role: 'alert' } });
+  status.hidden = true;
+  const activate = async () => {
+    if (busy) return;
+    busy = true;
+    status.hidden = true;
+    card.setAttribute('aria-busy', 'true');
+    action.disabled = true;
+    action.querySelector('span').textContent = 'Đang mở…';
+    try { await onClick(); }
+    catch (error) { status.textContent = error.message || 'Không mở được trang. Vui lòng thử lại.'; status.hidden = false; }
+    finally {
+      busy = false;
+      card.removeAttribute('aria-busy');
+      action.disabled = false;
+      action.querySelector('span').textContent = 'Chọn';
+    }
+  };
+  const card = panel([], { classes: 'mode-card', accent: color, onClick: activate });
   card.appendChild(el('div', { class: 'icon-box', html: icon(iconName, 28), style: { background: `color-mix(in srgb, ${color} 20%, var(--surface))`, border: `1px solid ${color}` } }));
   card.appendChild(el('h3', { text: title }));
   card.appendChild(el('div', { class: 'subtitle', text: subtitle, style: { color } }));
   card.appendChild(el('div', { class: 'desc', text: desc }));
-  card.appendChild(btn('Chọn', onClick, { kind: 'primary', iconName: 'arrowRight' }));
+  card.appendChild(status);
+  const action = btn('Chọn', (event) => { event.stopPropagation(); activate(); }, { kind: 'primary', iconName: 'arrowRight' });
+  card.appendChild(action);
   return card;
 }
 

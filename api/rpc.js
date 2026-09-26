@@ -70,7 +70,11 @@ module.exports = async function handler(req, res) {
     const result = await callService(db, method, args, { isAdmin: admin, visitorId });
     return res.end(JSON.stringify({ result }));
   } catch (error) {
-    if (res.statusCode < 400) res.statusCode = error.message.includes('MONGODB_URI') ? 503 : 400;
-    return res.end(JSON.stringify({ error: error.message || 'Không xử lý được yêu cầu.' }));
+    const databaseError = error.name?.startsWith('Mongo') || error.message?.includes('MONGODB_URI') || error.message?.includes('querySrv');
+    if (res.statusCode < 400) res.statusCode = databaseError ? 503 : 400;
+    if (databaseError) console.error('MongoDB request failed:', error);
+    return res.end(JSON.stringify({ error: databaseError
+      ? 'Không kết nối được dữ liệu MongoDB. Vui lòng thử lại sau hoặc báo quản trị viên.'
+      : error.message || 'Không xử lý được yêu cầu.' }));
   }
 };

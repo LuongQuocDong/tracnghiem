@@ -11,7 +11,10 @@ async function renderRolePick(root, App) {
   const grid = el('div', { class: 'mode-hub-grid' });
   grid.appendChild(roleCard('check', 'var(--accent)', 'Học viên', 'Làm bài trắc nghiệm hoặc điền chỗ trống',
     'Chọn lớp và tên trong danh sách, hoặc nhập tên khi lớp chưa có danh sách. Kết quả được lưu để xem lại.',
-    async () => { App.role = 'student'; App.org = {}; const groups = await App.api.battalions(); await App.navigate(groups.length ? 'orgpick' : 'start'); }));
+    async () => {
+      try { App.role = 'student'; App.org = {}; const groups = await App.api.battalions(); await App.navigate(groups.length ? 'orgpick' : 'start'); }
+      catch (error) { toast(error.message, 'err'); }
+    }));
   grid.appendChild(roleCard('chart', 'var(--accent-2)', 'Giảng viên', 'Quản lý điểm theo từng môn',
     'Chọn Tiểu đoàn — Đại đội — Lớp rồi chọn môn để xem điểm, số lần làm bài và tiến bộ của từng học viên.',
     async () => {
@@ -22,8 +25,8 @@ async function renderRolePick(root, App) {
         catch (error) { toast(error.message, 'err'); return; }
       }
       App.updateNav(); App.role = 'teacher'; App.org = {};
-      const groups = await App.api.battalions();
-      await App.navigate(groups.length ? 'orgpick' : 'roster');
+      try { const groups = await App.api.battalions(); await App.navigate(groups.length ? 'orgpick' : 'roster'); }
+      catch (error) { toast(error.message, 'err'); }
     }));
   root.appendChild(grid);
 

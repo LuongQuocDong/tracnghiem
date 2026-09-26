@@ -11,7 +11,7 @@ Yêu cầu Node.js 20 trở lên.
 3. `npm run seed` để nạp 7 môn trắc nghiệm và 1 bộ điền chỗ trống. Lệnh chỉ thêm đề chưa có, không ghi đè đề đã sửa.
 4. `npm run dev`, mở `http://localhost:3000`.
 
-Nếu Node trên máy dùng DNS SRV không hoạt động, có thể đặt thêm `MONGODB_DNS_SERVERS=ip1,ip2` trong `.env.local`. Chỉ đặt khi cần; Vercel thường dùng DNS của nền tảng.
+Ứng dụng tra bản ghi MongoDB qua DNS HTTPS để tránh lỗi `querySrv ETIMEOUT` trên một số mạng; nếu dịch vụ DNS HTTPS không sẵn sàng, ứng dụng thử lại bằng DNS SRV thông thường. Có thể đặt `MONGODB_DNS_SERVERS=ip1,ip2` để hỗ trợ cách tra DNS thông thường trên máy riêng.
 
 ## Đưa lên Vercel
 

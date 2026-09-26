@@ -2,7 +2,10 @@
 /** Dieu phoi trung tam: header/nav, chuyen man hinh (crossfade, khong xe khung), phien lam bai. */
 
 window.addEventListener('error', (e) => console.error('window.onerror:', e.message, e.filename + ':' + e.lineno));
-window.addEventListener('unhandledrejection', (e) => console.error('unhandledrejection:', e.reason && (e.reason.stack || e.reason)));
+window.addEventListener('unhandledrejection', (e) => {
+  console.error('unhandledrejection:', e.reason && (e.reason.stack || e.reason));
+  toast(e.reason?.message || 'Thao tác chưa thành công. Vui lòng thử lại.', 'err');
+});
 
 const NAV_ITEMS = [
   { key: 'start', label: 'Trang chủ', icon: 'home' },

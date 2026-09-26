@@ -2,5 +2,6 @@
   "version": 2,
   "framework": null,
   "outputDirectory": "public",
+  "regions": ["sin1"],
   "rewrites": [{ "source": "/", "destination": "/index.html" }]
 }

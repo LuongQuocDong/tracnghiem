@@ -224,11 +224,16 @@ async function saveMcqResult(api, session) {
 // --------------------------------------------------------------- phien Fill
 async function createFillSession(api, bank, count, fillMode, studentName) {
   const picked = sampleArray(bank.questions, Math.min(count, bank.questions.length));
+  const autoQuestions = picked.filter((q) => q.auto === undefined ? !q.blanks.length : q.auto);
+  const batches = [];
+  for (let i = 0; i < autoQuestions.length; i += 100) batches.push(autoQuestions.slice(i, i + 100).map((q) => q.text));
+  const generated = (await Promise.all(batches.map((texts) => api.autoBlanks(texts)))).flat();
+  let autoIndex = 0;
   const questions = [];
   for (const q of picked) {
     const isAuto = q.auto === undefined ? !q.blanks.length : q.auto;
     if (isAuto) {
-      const made = await api.autoBlank(q.text);
+      const made = generated[autoIndex++];
       questions.push({ id: q.id, text: made.text, blanks: made.blanks });
     } else {
       questions.push({ id: q.id, text: q.text, blanks: q.blanks.slice() });

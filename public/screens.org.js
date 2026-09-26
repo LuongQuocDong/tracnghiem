@@ -13,7 +13,7 @@ async function renderRolePick(root, App) {
     'Chọn lớp và tên trong danh sách, hoặc nhập tên khi lớp chưa có danh sách. Kết quả được lưu để xem lại.',
     async () => {
       App.role = 'student'; App.org = {};
-      const groups = await App.api.battalions();
+      const groups = (await (App.prefetch || App.api.bootstrap())).battalions;
       if (!groups.length) App.org = { battalion: 'Cộng đồng', company: 'Trực tuyến', className: 'Tự do' };
       await App.navigate(groups.length ? 'orgpick' : 'start');
     }));
@@ -26,6 +26,7 @@ async function renderRolePick(root, App) {
         App.admin = (await App.api.loginAdmin(password)).admin;
       }
       App.updateNav(); App.role = 'teacher'; App.org = {};
+      App.prefetch = null;
       const groups = await App.api.battalions();
       await App.navigate(groups.length ? 'orgpick' : 'roster');
     }));

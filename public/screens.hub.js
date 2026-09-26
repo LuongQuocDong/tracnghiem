@@ -6,7 +6,10 @@ const COUNT_CHOICES = [50, 70, 90];
 // ================================================================= MODE HUB
 async function renderModeHub(root, App) {
   if (!(await requireOrg(App))) return;
-  const { bankCount, fillBankCount, historyCount } = await App.api.homeSummary();
+  const prefetched = App.role === 'student' ? App.prefetch : null;
+  App.prefetch = null;
+  const { bankCount, fillBankCount, historyCount } = prefetched
+    ? (await prefetched).summary : await App.api.homeSummary();
 
   const { battalion, company, className } = App.org;
   const crumbs = el('div', { class: 'row gap8 wrap mt8', style: { marginBottom: '4px' } });

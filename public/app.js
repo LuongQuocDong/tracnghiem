@@ -55,6 +55,7 @@ const App = {
   toast,
   session: null,
   fillSession: null,
+  prefetch: null,
   role: null,     // 'student' | 'teacher'
   org: null,      // { battalion, company, className }
   admin: false,
@@ -272,6 +273,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   buildNav();
   try { App.admin = (await App.api.authStatus()).admin; } catch (err) { console.error(err); }
   App.updateNav();
+  const bootstrap = App.api.bootstrap();
+  App.prefetch = bootstrap;
+  bootstrap.catch(() => { if (App.prefetch === bootstrap) App.prefetch = null; });
   document.getElementById('brand').addEventListener('click', () => App.navigate('start'));
   const logoImg = document.getElementById('brand-logo');
   if (logoImg) {
